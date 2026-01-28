@@ -113,6 +113,8 @@ header {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  overflow: hidden;
+  /* Prevent horizontal scroll from elements peaking out */
 }
 
 .hero-text small {
@@ -322,6 +324,31 @@ header {
   top: 150px;
   left: 5px;
   filter: drop-shadow(0 10px 20px rgba(183, 61, 61, 0.2));
+}
+
+.hero-owl-3d {
+  position: absolute;
+  bottom: 0;
+  right: -250px;
+  z-index: -1;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.hero-owl-3d img {
+  width: clamp(200px, 40vw, 450px);
+  height: auto;
+  transform: rotate(-90deg);
+  filter: blur(1px);
+  /* Slight depth effect */
+}
+
+/* Hide or adjust on small mobile to avoid layout shifts */
+@media (max-width: 480px) {
+  .hero-owl-3d {
+    right: -150px;
+    opacity: 0.3;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1072,7 +1099,7 @@ header {
 /* SECTION SEPARATOR (OWL RESTING) */
 .peeking-owl {
   position: absolute;
-  z-index: 500;
+  z-index: 5;
   pointer-events: none;
   left: 50%;
   transform: translate(-50%, 0);
@@ -1085,8 +1112,6 @@ header {
 
 .promos-owl {
   top: -10px;
-  z-index: 600;
-  /* Ensure it stays above services */
 }
 
 .footer-owl {
