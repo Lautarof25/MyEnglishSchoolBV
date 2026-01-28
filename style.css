@@ -639,6 +639,12 @@ header {
   background: rgb(240, 210, 100);
 }
 
+@media (max-width: 768px) {
+  .services {
+    margin-top: 4rem;
+  }
+}
+
 @media (min-width: 768px) {
   .services {
     padding: 6rem 5rem;
@@ -664,7 +670,8 @@ header {
   padding: clamp(2rem, 5vw, 4rem) 1rem;
   background: linear-gradient(135deg, #f0f3f9 0%, #e8ecf5 100%);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  /* Changed from hidden to allow owl to be seen */
 }
 
 .promo-container {
@@ -874,6 +881,7 @@ header {
 @media (min-width: 768px) {
   .promotions {
     padding: 6rem 5rem;
+    margin-top: 0;
   }
 
   .promo-container {
@@ -1040,6 +1048,16 @@ header {
   }
 }
 
+@media (max-width: 768px) {
+  .promotions {
+    margin-top: 4rem;
+  }
+
+  .main-footer {
+    margin-top: 5rem !important;
+  }
+}
+
 @media (min-width: 1024px) {
   .footer-container {
     grid-template-columns: 1fr 1fr 1.5fr;
@@ -1048,4 +1066,57 @@ header {
   .main-footer {
     padding: 6rem 5rem 3rem;
   }
+}
+
+
+/* SECTION SEPARATOR (OWL RESTING) */
+.peeking-owl {
+  position: absolute;
+  z-index: 500;
+  pointer-events: none;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+/* Base positions (Desktop) */
+.services-owl {
+  top: -10px;
+}
+
+.promos-owl {
+  top: -10px;
+  z-index: 600;
+  /* Ensure it stays above services */
+}
+
+.footer-owl {
+  top: -100px;
+}
+
+@media (max-width: 768px) {
+  .services-owl {
+    top: -40px;
+  }
+
+  .promos-owl {
+    top: -70px;
+  }
+
+  /* footer-owl is fine at -100px */
+}
+
+.peeking-owl img {
+  width: 100px;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.1));
+  transform-origin: bottom center;
+}
+
+.peeking-owl.reverse img {
+  transform: scaleX(-1);
+  /* Flipped for variety */
+}
+
+.peeking-owl:hover img {
+  transform: translateY(-5px) scale(1.05);
 }
