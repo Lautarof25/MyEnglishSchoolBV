@@ -51,7 +51,7 @@ function startGame(mode) {
       status.style.color = "var(--primary)";
 
       boxes.forEach((box, idx) => {
-        box.innerHTML = `<span class="emoji">🏆</span>`;
+        box.innerHTML = `<img src="buhowon.webp" alt="Winner Buho" class="winner-image">`;
         box.classList.remove("active");
       });
 

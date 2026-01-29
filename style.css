@@ -1860,6 +1860,14 @@ body.menu-open {
   }
 }
 
+.winner-image {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  border-radius: 20px;
+  animation: float 2s ease-in-out infinite;
+}
+
 .game-controls {
   display: flex;
   justify-content: center;
