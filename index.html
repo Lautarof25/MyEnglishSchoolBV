@@ -22,9 +22,16 @@
   <header>
     <a href="#" class="logo">
       <img class="img-logo" src="Copilot_20260128_143157.png" alt="logo">
-
-      englishschoolbv
+      <small>EnglishSchoolBV <br>(My English School)</small>
     </a>
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#promociones">Promociones</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
     <div class="menu-btn"><span></span></div>
   </header>
 
@@ -77,21 +84,35 @@
         <span class="card-tag">Grupos Reducidos</span>
       </div>
       <div class="service-card">
-        <div class="card-icon">🎓</div>
-        <h3>Exámenes Internacionales</h3>
-        <p>Preparación para Cambridge First Certificate y fonética para perfeccionar fluidez y pronunciación.</p>
-        <span class="card-tag">Cambridge Prep</span>
-      </div>
-      <div class="service-card">
         <div class="card-icon">🌍</div>
         <h3>Todos los Niveles</h3>
-        <p>Cursos para todas las edades. Modalidad presencial o virtual según tu preferencia.</p>
+        <p>Inglés para todas las edades. Modalidad presencial o virtual con clases adaptadas a tu nivel actual.</p>
         <span class="card-tag">Presencial & Virtual</span>
+      </div>
+      <div class="service-card">
+        <div class="card-icon">🇧🇷</div>
+        <h3>Clases de Portugués</h3>
+        <p>Aprendé el idioma más hablado de Sudamérica con nuestro curso dinámico para todos los niveles y edades.</p>
+        <span class="card-tag">Portugués</span>
+      </div>
+      <div class="service-card">
+        <div class="card-icon">🇬🇧</div>
+        <h3>Exámenes Cambridge</h3>
+        <p>Preparación integral para KET, PET, FCE y CAE. Perfeccioná tu fonética y certificá tu nivel
+          internacionalmente.</p>
+        <span class="card-tag">Certificación Oficial</span>
+      </div>
+      <div class="service-card">
+        <div class="card-icon">✈️</div>
+        <h3>Viajes de Estudio</h3>
+        <p>Viví la experiencia en Londres y la Universidad de Cambridge junto a Global Studies. Inmersión cultural
+          única.</p>
+        <span class="card-tag">Global Studies Trips</span>
       </div>
       <div class="service-card">
         <div class="card-icon">📅</div>
         <h3>Flexibilidad Total</h3>
-        <p>Clases grupales o individuales pensadas para tus necesidades y disponibilidad horaria.</p>
+        <p>Clases grupales o individuales diseñadas para adaptarse a tus necesidades y disponibilidad horaria.</p>
         <span class="card-tag">A tu medida</span>
       </div>
     </div>
@@ -149,7 +170,7 @@
     </div>
   </section>
 
-  <footer class="main-footer">
+  <footer class="main-footer" id="contacto">
     <div class="peeking-owl footer-owl">
       <img src="buho.webp" alt="buho peeking">
     </div>
@@ -160,7 +181,8 @@
           englishschoolbv
         </a>
         <p class="footer-desc">
-          Tu academia de inglés en Bella Vista. Cursos para todas las edades, niveles y necesidades.
+          Tu academia de idiomas en Bella Vista. Inglés para todas las edades, cursos de portugués, preparación para
+          exámenes internacionales y viajes de estudio.
         </p>
         <div class="footer-social">
           <a href="https://www.instagram.com/englishschoolbv" target="_blank" class="social-icon">
@@ -216,6 +238,32 @@
       <p>&copy; 2026 My English School - Bella Vista. Todos los derechos reservados.</p>
     </div>
   </footer>
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      });
+    });
+  </script>
+  <a href="https://wa.me/5491159917854" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 448 512" width="32" height="32" fill="white">
+      <path
+        d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.4 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.2-3.2-5.6-.3-8.6 2.4-11.3 2.5-2.4 5.5-6.4 8.3-9.6 2.8-3.2 3.7-5.5 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.4-29.8-17-40.7-4.5-10.7-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.3 5.7 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+    </svg>
+    <span class="tooltip">¿Tenes alguna duda?</span>
+  </a>
 </body>
 
 </html>
