@@ -12,7 +12,7 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="apple-touch-icon.png" type="image/png">
-
+  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -28,9 +28,11 @@
       <ul>
         <li><a href="#">Inicio</a></li>
         <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#promociones">Promociones</a></li>
         <li><a href="#testimonios">Testimonios</a></li>
         <li><a href="#cultura">Cultura</a></li>
+        <li><a href="#juego">Juego</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
@@ -121,6 +123,75 @@
     <div class="services-footer">
       <p>¡Contamos con grupos reducidos para clases más personalizadas así que reserva hoy tu lugar!</p>
       <a href="https://wa.me/5491159917854" target="_blank" class="secondary-btn">Reservar mi lugar</a>
+    </div>
+  </section>
+
+  <section class="about-us" id="nosotros">
+    <div class="peeking-owl about-owl">
+      <img src="buho.webp" alt="buho peeking">
+    </div>
+    <div class="section-header">
+      <small>Nuestra Esencia</small>
+      <h2>Misión, Visión y <span>Valores</span></h2>
+    </div>
+
+    <div class="mision-vision-grid">
+      <div class="about-card mision">
+        <div class="about-icon">🦉</div>
+        <h3>Nuestra Misión</h3>
+        <p>Acompañamos a cada estudiante en su aprendizaje desde una profunda escucha y atención a las trayectorias
+          individuales. Priorizamos la calidad humana: para nosotros, aprender un idioma implica comprender, expresarse
+          y comunicarse sintiéndose motivado y valorado.</p>
+      </div>
+      <div class="about-card vision">
+        <div class="about-icon">🌱</div>
+        <h3>Nuestra Visión</h3>
+        <p>Aspiramos a ser un instituto de referencia reconocido por cómo acompañamos a las personas. Imaginamos el
+          inglés como una herramienta real de comunicación e identidad, formando estudiantes que se animen a ser ellos
+          mismos a través de la lengua.</p>
+      </div>
+    </div>
+
+    <div class="values-container">
+      <h3>Nuestros Valores</h3>
+      <div class="values-grid">
+        <div class="value-item">
+          <div class="value-icon">❤️</div>
+          <h4>Calidad humana</h4>
+          <p>Personas en el centro. Escuchar, acompañar y comprender son nuestros pilares.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">🧠</div>
+          <h4>Aprendizaje significativo</h4>
+          <p>Aprender es comprender, usar el idioma y darle un sentido real.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">🗣️</div>
+          <h4>Comunicación auténtica</h4>
+          <p>Enseñamos para hablar, compartir ideas, experiencias y emociones.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">🤗</div>
+          <h4>Acompañamiento</h4>
+          <p>Buscamos un clima de confianza, comodidad y motivación constante.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">✨</div>
+          <h4>Mejora continua</h4>
+          <p>Escuchamos a las familias y reflexionamos para mejorar siempre.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">👩‍🏫</div>
+          <h4>Enfoque Pedagógico</h4>
+          <p>Rechazamos los resultados vacíos; priorizamos el sentido pedagógico.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="identity-phrase">
+      <div class="phrase-content">
+        <p>"My English School: aprender inglés desde la calidad humana."</p>
+      </div>
     </div>
   </section>
 
@@ -251,6 +322,31 @@
         </div>
         <p class="meme-caption">¡Aprender inglés no tiene por qué ser aburrido!</p>
       </div>
+    </div>
+  </section>
+
+  <section class="game-section" id="juego">
+    <div class="section-header">
+      <small>Let's Play!</small>
+      <h2>English <span>Adventure</span></h2>
+    </div>
+
+    <div class="game-container">
+      <div id="game-status" class="game-status">¡Toca un botón para empezar!</div>
+
+      <div id="game-display-wrapper" class="game-display-wrapper">
+        <div class="game-box" id="box-0">🎮</div>
+        <div class="game-box" id="box-1">🎮</div>
+        <div class="game-box" id="box-2">🎮</div>
+        <div class="game-box" id="box-3">🎮</div>
+      </div>
+
+      <div class="game-controls">
+        <button onclick="startGame('emojis')" class="game-btn">jugar con Emojis ✨</button>
+        <button onclick="startGame('words')" class="game-btn secondary">jugar con Palabras 📝</button>
+      </div>
+
+      <div id="game-round-info" class="game-round-info">Ronda: 0 / 6</div>
     </div>
   </section>
 
