@@ -734,6 +734,39 @@ body.menu-open {
   border: 1px solid rgba(19, 51, 145, 0.05);
 }
 
+.service-card.featured {
+  background: linear-gradient(135deg, white 0%, #f0f4ff 100%);
+  border: 2px solid var(--accent);
+  box-shadow: 0 20px 45px rgba(99, 184, 255, 0.2);
+}
+
+.service-card.featured::after {
+  content: '★ DESTACADO';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--accent);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  letter-spacing: 1px;
+}
+
+.service-card .badge {
+  display: inline-block;
+  background: var(--secondary);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 5px;
+  vertical-align: middle;
+  margin-left: 5px;
+  text-transform: uppercase;
+}
+
 .services-footer {
   background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
   padding: 3.5rem 2rem;
@@ -1352,5 +1385,213 @@ body.menu-open {
   .whatsapp-float .tooltip {
     display: none;
     /* Hide tooltip on mobile to save space */
+  }
+}
+
+/* TESTIMONIALS SECTION */
+.testimonials {
+  padding: 6rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 30px;
+  box-shadow: 0 15px 35px rgba(19, 51, 145, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(19, 51, 145, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(19, 51, 145, 0.1);
+}
+
+.testimonial-stars {
+  color: var(--yellow);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.testimonial-card p {
+  color: var(--grayblue);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.testimonial-user {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-info strong {
+  display: block;
+  color: var(--dark);
+  font-size: 1.1rem;
+}
+
+.user-info span {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* CULTURAL HUB SECTION */
+.cultural-hub {
+  padding: 6rem 1.5rem;
+  background: white;
+  border-radius: 60px;
+  margin: 4rem auto;
+  max-width: 1200px;
+  box-shadow: 0 30px 60px rgba(19, 51, 145, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.cultural-hub::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(90deg, var(--yellow), var(--secondary), var(--accent));
+}
+
+.culture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.culture-card {
+  padding: 3rem 2rem;
+  border-radius: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.culture-card:hover {
+  transform: translateY(-10px) rotate(1deg);
+}
+
+.card-label {
+  position: absolute;
+  top: -15px;
+  left: 30px;
+  background: var(--dark);
+  color: white;
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.culture-card.curiosity {
+  background: #fff8e1;
+  border: 2px solid #ffe082;
+}
+
+.culture-card.curiosity h3 {
+  color: #f57f17;
+}
+
+.culture-card.idiom {
+  background: #fce4ec;
+  border: 2px solid #f8bbd0;
+}
+
+.culture-card.idiom h3 {
+  color: #c2185b;
+}
+
+.idiom-example {
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0.8rem;
+  border-radius: 12px;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--dark);
+  border-left: 4px solid var(--secondary);
+}
+
+.culture-card.meme-card {
+  background: #e1f5fe;
+  border: 2px solid #b3e5fc;
+  padding: 2rem 1.5rem;
+}
+
+.meme-container {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 4px solid white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.meme-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.meme-caption {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--primary);
+}
+
+.culture-card h3 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.culture-card p {
+  color: var(--grayblue);
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.culture-icon {
+  font-size: 3rem;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  opacity: 0.2;
+}
+
+@media (max-width: 768px) {
+  .cultural-hub {
+    margin: 2rem 1rem;
+    padding: 4rem 1.5rem;
+    border-radius: 40px;
+  }
+
+  .culture-grid {
+    grid-template-columns: 1fr;
   }
 }
