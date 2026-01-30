@@ -25,11 +25,17 @@ const audioFiles = {
   "Dog": new Audio("dog.mp3")
 };
 
+const bgMusic = new Audio("music-kids-edited.mp3");
+bgMusic.loop = true;
+bgMusic.volume = 0.3;
+
 let isGameRunning = false;
 
 function startGame(mode) {
   if (isGameRunning) return;
   isGameRunning = true;
+  bgMusic.currentTime = 0;
+  bgMusic.play().catch(e => console.log("Audio play failed:", e));
 
   const status = document.getElementById("game-status");
   const roundInfo = document.getElementById("game-round-info");
@@ -58,6 +64,8 @@ function startGame(mode) {
       roundInfo.innerText = "Ronda: 6 / 6";
       buttons.forEach(btn => btn.disabled = false);
       isGameRunning = false;
+      bgMusic.pause();
+      bgMusic.currentTime = 0;
       return;
     }
 
