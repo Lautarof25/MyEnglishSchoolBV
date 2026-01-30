@@ -17,15 +17,15 @@ const emojiMap = {
 };
 
 const audioFiles = {
-  "Jump": new Audio("/audio/jump.mp3"),
-  "Run": new Audio("/audio/run.mp3"),
-  "Clap": new Audio("/audio/clap.mp3"),
-  "Apple": new Audio("/audio/apple.mp3"),
-  "Banana": new Audio("/audio/banana.mp3"),
-  "Dog": new Audio("/audio/dog.mp3")
+  "Jump": new Audio("audio/jump.mp3"),
+  "Run": new Audio("audio/run.mp3"),
+  "Clap": new Audio("audio/clap.mp3"),
+  "Apple": new Audio("audio/apple.mp3"),
+  "Banana": new Audio("audio/banana.mp3"),
+  "Dog": new Audio("audio/dog.mp3")
 };
 
-const bgMusic = new Audio("/audio/music-kids-edited.mp3");
+const bgMusic = new Audio("audio/music-kids-edited.mp3");
 bgMusic.loop = true;
 bgMusic.volume = 0.3;
 
@@ -57,7 +57,7 @@ function startGame(mode) {
       status.style.color = "var(--primary)";
 
       boxes.forEach((box, idx) => {
-        box.innerHTML = `<img src="/images/buhowon.webp" alt="Winner Buho" class="winner-image">`;
+        box.innerHTML = `<img src="images/buhowon.webp" alt="Winner Buho" class="winner-image">`;
         box.classList.remove("active");
       });
 
