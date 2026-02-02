@@ -1782,6 +1782,94 @@ body.menu-open {
   margin: 0 auto;
 }
 
+/* GAME SECTION TABS */
+.game-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  /* Allows wrapping on small screens */
+  padding: 0 1rem;
+}
+
+.tab-btn {
+  background: white;
+  border: 2px solid var(--accent);
+  color: var(--primary);
+  padding: 0.7rem 1.2rem;
+  border-radius: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  flex: 1 1 auto;
+  /* Allows buttons to grow on mobile */
+  max-width: 200px;
+}
+
+.tab-btn.active {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 10px 20px rgba(99, 184, 255, 0.3);
+}
+
+.tab-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(99, 184, 255, 0.2);
+}
+
+/* MATCHING GAME STYLES */
+.matching-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* IFRAME HELPER */
+.iframe-container {
+  position: relative;
+  width: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  background: white;
+  /* Aspect ratio trick could go here but iframe height is fixed by source */
+}
+
+.iframe-container iframe {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .game-tabs {
+    gap: 0.5rem;
+  }
+
+  .tab-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 12px;
+  }
+
+  .game-container {
+    padding: 2.5rem 1rem;
+    border-radius: 35px;
+    border-width: 3px;
+  }
+
+  .iframe-container {
+    height: 500px;
+  }
+
+  .iframe-container iframe {
+    height: 100% !important;
+  }
+}
+
 .game-container {
   background: white;
   border-radius: 50px;
@@ -1790,6 +1878,7 @@ body.menu-open {
   box-shadow: 0 30px 70px rgba(19, 51, 145, 0.1);
   border: 4px solid var(--accent);
   position: relative;
+  overflow: hidden;
 }
 
 .game-status {
@@ -1932,13 +2021,202 @@ body.menu-open {
   animation: game-beat 0.3s ease-out;
 }
 
-@media (max-width: 600px) {
-  .game-display {
-    font-size: 4rem;
+/* GAME SECTION TABS */
+.game-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab-btn {
+  background: white;
+  border: 2px solid var(--accent);
+  color: var(--primary);
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background: var(--accent);
+  color: white;
+}
+
+.tab-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(99, 184, 255, 0.2);
+}
+
+/* MATCHING GAME STYLES */
+.matching-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.matching-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.match-item {
+  background: var(--light);
+  padding: 1.2rem;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  text-align: center;
+  user-select: none;
+}
+
+.match-item:hover {
+  background: white;
+  border-color: var(--accent);
+  transform: scale(1.02);
+}
+
+.match-item.selected {
+  background: var(--accent);
+  color: white;
+  border-color: var(--primary);
+}
+
+.match-item.matched {
+  background: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+  cursor: default;
+  opacity: 0.7;
+}
+
+.match-item.error {
+  background: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
   }
 
-  .game-word-text {
-    font-size: 2rem;
+  25% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+@media (max-width: 600px) {
+  .matching-grid {
+    gap: 1rem;
+  }
+
+  .match-item {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* SENTENCE GAME STYLES */
+.sentence-display {
+  background: var(--light);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--grayblue);
+}
+
+.sentence-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.sentence-words-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  min-height: 80px;
+  padding: 1rem;
+}
+
+.word-block {
+  background: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.word-block:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(99, 184, 255, 0.2);
+}
+
+.word-block.used {
+  opacity: 0.3;
+  pointer-events: none;
+  transform: none;
+}
+
+.word-block.in-sentence {
+  background: var(--accent);
+  color: white;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.placeholder-text {
+  color: var(--grayblue);
+  font-style: italic;
+  opacity: 0.6;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .word-block {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
   }
 }
 

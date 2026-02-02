@@ -374,25 +374,90 @@
   <section class="game-section" id="juego">
     <div class="section-header">
       <small>Let's Play!</small>
-      <h2>English <span>Adventure</span></h2>
+      <h2>English <span>Games</span></h2>
+    </div>
+
+    <div class="game-tabs">
+      <button onclick="switchGame('adventure')" id="btn-adventure" class="tab-btn active">Adventure</button>
+      <button onclick="switchGame('matching')" id="btn-matching" class="tab-btn">Match Words</button>
+      <button onclick="switchGame('sentence')" id="btn-sentence" class="tab-btn">Order Sentence</button>
+      <button onclick="switchGame('monster')" id="btn-monster" class="tab-btn">Monster Phrases 👾</button>
     </div>
 
     <div class="game-container">
-      <div id="game-status" class="game-status">¡Toca un botón para empezar!</div>
+      <!-- Adventure Game (Original) -->
+      <div id="adventure-game">
+        <div id="game-status" class="game-status">¡Toca un botón para empezar!</div>
 
-      <div id="game-display-wrapper" class="game-display-wrapper">
-        <div class="game-box" id="box-0">🎮</div>
-        <div class="game-box" id="box-1">🎮</div>
-        <div class="game-box" id="box-2">🎮</div>
-        <div class="game-box" id="box-3">🎮</div>
+        <div id="game-display-wrapper" class="game-display-wrapper">
+          <div class="game-box" id="box-0">🎮</div>
+          <div class="game-box" id="box-1">🎮</div>
+          <div class="game-box" id="box-2">🎮</div>
+          <div class="game-box" id="box-3">🎮</div>
+        </div>
+
+        <div class="game-controls">
+          <button onclick="startGame('emojis')" class="game-btn">jugar con Emojis ✨</button>
+          <button onclick="startGame('words')" class="game-btn secondary">jugar con Palabras 📝</button>
+        </div>
+
+        <div id="game-round-info" class="game-round-info">Ronda: 0 / 6</div>
       </div>
 
-      <div class="game-controls">
-        <button onclick="startGame('emojis')" class="game-btn">jugar con Emojis ✨</button>
-        <button onclick="startGame('words')" class="game-btn secondary">jugar con Palabras 📝</button>
+      <!-- Matching Game (New) -->
+      <div id="matching-game" class="hidden">
+        <div id="matching-status" class="game-status">¡Une las palabras!</div>
+
+        <div class="matching-grid">
+          <div class="matching-column" id="english-column">
+            <!-- English words injected here -->
+          </div>
+          <div class="matching-column" id="spanish-column">
+            <!-- Spanish words injected here -->
+          </div>
+        </div>
+
+        <div class="matching-controls" style="margin-top: 2rem;">
+          <button id="start-matching-btn" onclick="startMatchingGame()" class="game-btn">Empezar Juego 🚀</button>
+        </div>
+
+        <div id="matching-round-info" class="game-round-info">Ronda: 0 / 3</div>
       </div>
 
-      <div id="game-round-info" class="game-round-info">Ronda: 0 / 6</div>
+      <!-- Sentence Game (New) -->
+      <div id="sentence-game" class="hidden">
+        <div id="sentence-status" class="game-status">¡Ordena la oración!</div>
+
+        <div class="sentence-display">
+          <div id="sentence-slots" class="sentence-slots">
+            <!-- Selected words will appear here -->
+            <p class="placeholder-text">Selecciona las palabras de abajo</p>
+          </div>
+        </div>
+
+        <div id="sentence-words" class="sentence-words-pool">
+          <!-- Shuffled words injected here -->
+        </div>
+
+        <div class="sentence-controls" style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+          <button id="start-sentence-btn" onclick="startSentenceGame()" class="game-btn">Empezar Juego 🚀</button>
+          <button id="check-sentence-btn" onclick="checkSentence()" class="game-btn secondary hidden">Comprobar
+            ✅</button>
+          <button id="reset-sentence-btn" onclick="resetSentence()" class="game-btn hidden"
+            style="background: var(--grayblue);">Reiniciar 🔄</button>
+        </div>
+
+        <div id="sentence-round-info" class="game-round-info">Ronda: 0 / 3</div>
+      </div>
+
+      <!-- External Game (Monster Phrases) -->
+      <div id="monster-game" class="hidden">
+        <div class="iframe-container">
+          <iframe style='max-width: 1040px; overflow: hidden; border: none;'
+            src='https://www.gamestolearnenglish.com/monster-phrases/embed.html' width='100%' height='715px'
+            scrolling='no'></iframe>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -493,6 +558,44 @@
 
   <script src="js/placement-test.js" defer></script>
   <script src="js/mini-game.js" defer></script>
+  <script src="js/matching-game.js" defer></script>
+  <script src="js/sentence-game.js" defer></script>
+  <script>
+    function switchGame(gameType) {
+      const adventure = document.getElementById('adventure-game');
+      const matching = document.getElementById('matching-game');
+      const sentence = document.getElementById('sentence-game');
+      const monster = document.getElementById('monster-game');
+
+      const btnAdventure = document.getElementById('btn-adventure');
+      const btnMatching = document.getElementById('btn-matching');
+      const btnSentence = document.getElementById('btn-sentence');
+      const btnMonster = document.getElementById('btn-monster');
+
+      // Pause audio from adventure game if it exists
+      if (typeof bgMusic !== 'undefined') {
+        bgMusic.pause();
+      }
+
+      // Hide all
+      [adventure, matching, sentence, monster].forEach(el => el.classList.add('hidden'));
+      [btnAdventure, btnMatching, btnSentence, btnMonster].forEach(btn => btn.classList.remove('active'));
+
+      if (gameType === 'adventure') {
+        adventure.classList.remove('hidden');
+        btnAdventure.classList.add('active');
+      } else if (gameType === 'matching') {
+        matching.classList.remove('hidden');
+        btnMatching.classList.add('active');
+      } else if (gameType === 'sentence') {
+        sentence.classList.remove('hidden');
+        btnSentence.classList.add('active');
+      } else if (gameType === 'monster') {
+        monster.classList.remove('hidden');
+        btnMonster.classList.add('active');
+      }
+    }
+  </script>
 </body>
 
 </html>
