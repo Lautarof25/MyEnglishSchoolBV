@@ -1844,31 +1844,7 @@ body.menu-open {
   max-width: 100%;
 }
 
-@media (max-width: 600px) {
-  .game-tabs {
-    gap: 0.5rem;
-  }
 
-  .tab-btn {
-    padding: 0.6rem 0.8rem;
-    font-size: 0.8rem;
-    border-radius: 12px;
-  }
-
-  .game-container {
-    padding: 2.5rem 1rem;
-    border-radius: 35px;
-    border-width: 3px;
-  }
-
-  .iframe-container {
-    height: 500px;
-  }
-
-  .iframe-container iframe {
-    height: 100% !important;
-  }
-}
 
 .game-container {
   background: white;
@@ -2350,5 +2326,64 @@ body.menu-open {
 
   .test-container {
     padding: 5rem 4rem;
+  }
+}
+
+/* GAME SECTION RESPONSIVE OVERRIDES */
+@media (max-width: 600px) {
+  .game-section {
+    padding: 2.5rem 0.5rem;
+  }
+
+  .game-tabs {
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .tab-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 12px;
+  }
+
+  .game-container {
+    padding: 2rem 0.6rem;
+    border-radius: 25px;
+    border-width: 2px;
+  }
+
+  .iframe-container {
+    height: 700px;
+    /* Increased height for Monster Phrases on mobile */
+    border-radius: 20px;
+  }
+
+  .iframe-container iframe {
+    height: 100% !important;
+  }
+
+  /* Adjust other games for small space */
+  .game-display-wrapper {
+    gap: 0.5rem;
+  }
+
+  .game-box {
+    min-height: 120px;
+    padding: 1rem 0.2rem;
+  }
+
+  .matching-grid,
+  .sentence-display {
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .iframe-container {
+    height: 550px;
+  }
+
+  .game-container {
+    padding: 1.5rem 0.5rem;
   }
 }

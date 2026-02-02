@@ -89,7 +89,7 @@
     </div>
 
     <div class="hero-image">
-      <div class="egg-shape">¡Abierto! <span>Inscribete ahora</span></div>
+      <div class="egg-shape">¡Abierto! <span>Inscribite ahora</span></div>
       <div class="image-dashed">
         <div class="image-inner">
           <img
@@ -378,15 +378,15 @@
     </div>
 
     <div class="game-tabs">
-      <button onclick="switchGame('adventure')" id="btn-adventure" class="tab-btn active">Adventure</button>
+      <button onclick="switchGame('monster')" id="btn-monster" class="tab-btn active">Monster Phrases 👾</button>
+      <button onclick="switchGame('adventure')" id="btn-adventure" class="tab-btn">Adventure</button>
       <button onclick="switchGame('matching')" id="btn-matching" class="tab-btn">Match Words</button>
       <button onclick="switchGame('sentence')" id="btn-sentence" class="tab-btn">Order Sentence</button>
-      <button onclick="switchGame('monster')" id="btn-monster" class="tab-btn">Monster Phrases 👾</button>
     </div>
 
     <div class="game-container">
       <!-- Adventure Game (Original) -->
-      <div id="adventure-game">
+      <div id="adventure-game" class="hidden">
         <div id="game-status" class="game-status">¡Toca un botón para empezar!</div>
 
         <div id="game-display-wrapper" class="game-display-wrapper">
@@ -451,7 +451,7 @@
       </div>
 
       <!-- External Game (Monster Phrases) -->
-      <div id="monster-game" class="hidden">
+      <div id="monster-game">
         <div class="iframe-container">
           <iframe style='max-width: 1040px; overflow: hidden; border: none;'
             src='https://www.gamestolearnenglish.com/monster-phrases/embed.html' width='100%' height='715px'
