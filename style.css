@@ -1941,3 +1941,136 @@ body.menu-open {
     font-size: 2rem;
   }
 }
+
+/* PLACEMENT TEST SECTION */
+.placement-test {
+  padding: 6rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: 600px;
+}
+
+.test-container {
+  background: white;
+  border-radius: 50px;
+  padding: 4rem 2rem;
+  box-shadow: 0 30px 70px rgba(19, 51, 145, 0.1);
+  border: 1px solid rgba(19, 51, 145, 0.05);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.test-intro h3 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2rem;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+}
+
+.test-intro p {
+  color: var(--grayblue);
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+}
+
+.test-progress-bar {
+  width: 100%;
+  height: 10px;
+  background: var(--light);
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.test-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.current-step {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.question-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 2.5rem;
+  line-height: 1.4;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.option-btn {
+  background: white;
+  border: 2px solid var(--light);
+  padding: 1.2rem;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  font-family: inherit;
+}
+
+.option-btn:hover {
+  border-color: var(--accent);
+  background: rgba(99, 184, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.option-btn:active {
+  transform: translateY(0);
+}
+
+.result-card h3 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2.2rem;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+}
+
+.level-result {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.result-desc {
+  color: var(--grayblue);
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .test-container {
+    padding: 5rem 4rem;
+  }
+}

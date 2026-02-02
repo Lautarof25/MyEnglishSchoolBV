@@ -58,6 +58,7 @@
         -->
         <li><a href="#testimonios">Testimonios</a></li>
         <li><a href="#cultura">Cultura</a></li>
+        <li><a href="#test">Nivelación</a></li>
         <li><a href="#juego">Juego</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
@@ -326,6 +327,50 @@
     </div>
   </section>
 
+  <section class="placement-test" id="test">
+    <div class="section-header">
+      <small>Descubrí tu nivel</small>
+      <h2>Test de <span>Nivelación</span></h2>
+    </div>
+
+    <div class="test-container" id="test-container">
+      <!-- Intro -->
+      <div id="test-intro" class="test-intro">
+        <h3>¿Cuánto sabés de inglés?</h3>
+        <p>Realizá nuestro test rápido de 12 preguntas para conocer tu nivel aproximado (A1-C2).</p>
+        <button id="start-test-btn" class="cta-btn">Empezar Test</button>
+      </div>
+
+      <!-- Question Card -->
+      <div id="question-card" class="question-card hidden">
+        <div class="test-progress-bar">
+          <div id="test-progress-fill" class="test-progress-fill"></div>
+        </div>
+        <span id="current-step" class="current-step">Pregunta 1 de 12</span>
+
+        <p id="question-text" class="question-text">Cargando pregunta...</p>
+
+        <div id="options-container" class="options-grid">
+          <!-- Options will be injected here -->
+        </div>
+      </div>
+
+      <!-- Result Card -->
+      <div id="result-card" class="result-card hidden">
+        <h3>¡Test Completado!</h3>
+        <span id="level-result" class="level-result">Nivel B2</span>
+        <p id="result-desc" class="result-desc">Tu nivel de inglés es excelente. Estás listo para desafíos mayores.</p>
+        <div class="test-result-actions">
+          <a href="https://wa.me/5491159917854" id="test-wa-btn" target="_blank" class="cta-btn">Consultar por
+            Cursos</a>
+          <button onclick="restartTest()" class="secondary-btn"
+            style="margin-top: 1rem; background: none; border: 2px solid var(--accent); color: var(--accent);">Repetir
+            Test</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="game-section" id="juego">
     <div class="section-header">
       <small>Let's Play!</small>
@@ -446,6 +491,7 @@
     <span class="tooltip">¿Tenes alguna duda?</span>
   </a>
 
+  <script src="js/placement-test.js" defer></script>
   <script src="js/mini-game.js" defer></script>
 </body>
 
